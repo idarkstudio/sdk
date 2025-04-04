@@ -2,60 +2,64 @@ import { MarkdownChipRow } from "/src/components/Chip/MarkdownChipRow";
 
 # dfx schema
 
-<MarkdownChipRow labels={["Reference"]} />
+<MarkdownChipRow labels={["Referencia"]} />
 
-The `dfx schema` command prints the schema for `dfx.json`.
+El comando `dfx schema` imprime el esquema para `dfx.json`.
 
-## Basic usage
+## Uso básico
 
-``` bash
+```bash
 dfx schema [option] [flag]
 ```
 
-## Options
+## Opciones
 
-You can use the following option with the `dfx schema` command.
+Puedes usar la siguiente opción con el comando `dfx schema`:
 
-| Option                 | Description                                                                |
-|------------------------|----------------------------------------------------------------------------|
-| `--for <which>`        | Display schema for which JSON file. (default: dfx)                         |
-| `--outfile <outfile>`  | Specifies a file to output the schema to instead of printing it to stdout. |
+| Opción                | Descripción                                                                         |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| `--for <which>`       | Muestra el esquema para un archivo JSON específico. (Por defecto: `dfx`).           |
+| `--outfile <outfile>` | Especifica un archivo de salida para el esquema en lugar de imprimirlo en `stdout`. |
 
-The parameter passed to `--for` can be one of the following:
+El parámetro pasado a `--for` puede ser uno de los siguientes:
 
-| `<for>` option         | Corresponds To                                         |
-|------------------------|--------------------------------------------------------|
-| dfx                    | dfx.json                                               |
-| networks               | networks.json                                          |
-| dfx-metadata           | dfx-related metadata stored in canister and accessible with `dfx canister metadata <canister> dfx` |
-| extension-manifest     | extension.json [example][example-extension-json]       |
-| extension-dependencies | dependencies.json [example][example-dependencies-json] |
+| Opción `<for>`           | Corresponde a                                                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `dfx`                    | `dfx.json`                                                                                                           |
+| `networks`               | `networks.json`                                                                                                      |
+| `dfx-metadata`           | Metadatos relacionados con `dfx` almacenados en el canister y accesibles con `dfx canister metadata <canister> dfx`. |
+| `extension-manifest`     | `extension.json` [ejemplo][example-extension-json].                                                                  |
+| `extension-dependencies` | `dependencies.json` [ejemplo][example-dependencies-json].                                                            |
 
-## Examples
+## Ejemplos
 
-You can print the schema for `dfx.json` by running the following command:
+Puedes imprimir el esquema para `dfx.json` ejecutando el siguiente comando:
 
-``` bash
+```bash
 dfx schema
 ```
 
-You can print the schema for `networks.json` by running the following command:
+Puedes imprimir el esquema para `networks.json` ejecutando el siguiente comando:
 
-``` bash
+```bash
 dfx schema --for networks
 ```
 
-You can print the schema for the "dfx" metadata JSON (which contains fields such as "pullable", "tech_stack", etc) by running the following command:
+Puedes imprimir el esquema para el JSON de metadatos "dfx" (que contiene campos
+como "pullable", "tech_stack", etc) ejecutando el siguiente comando:
 
-``` bash
+```bash
 dfx schema --for dfx-metadata
 ```
 
-If you want to write the schema for dfx.json to `path/to/file/schema.json`, you can do so by running the following command:
+Si deseas escribir el esquema para `dfx.json` en `path/to/file/schema.json`,
+puedes hacerlo ejecutando el siguiente comando:
 
-``` bash
+```bash
 dfx schema --outfile path/to/file/schema.json
 ```
 
-[example-extension-json]: https://raw.githubusercontent.com/dfinity/dfx-extensions/main/extensions/nns/extension.json
-[example-dependencies-json]: https://raw.githubusercontent.com/dfinity/dfx-extensions/main/extensions/nns/dependencies.json
+[example-extension-json]:
+  https://raw.githubusercontent.com/dfinity/dfx-extensions/main/extensions/nns/extension.json
+[example-dependencies-json]:
+  https://raw.githubusercontent.com/dfinity/dfx-extensions/main/extensions/nns/dependencies.json
